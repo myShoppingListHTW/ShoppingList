@@ -4,6 +4,9 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+*gradle
+settings.gradle
+
 
 ### STS ###
 .apt_generated
@@ -35,3 +38,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### H2 DB ###
+*.mv.db
+*.trace.db
+*.h2.db
+```
+
+
