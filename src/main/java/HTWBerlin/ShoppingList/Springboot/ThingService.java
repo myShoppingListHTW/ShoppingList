@@ -23,4 +23,10 @@ public class ThingService {
         Iterable<Thing> iterator = repo.findAll();
         List<Thing> things = new ArrayList<Thing>();
         for (Thing thing : iterator)  things.add(thing);
-        return things;}}
+        return things;}
+
+    public void delete(Long id) {
+        repo.deleteById(id);
+    }
+
+}

@@ -29,4 +29,19 @@ public class ThingController {
     public List<Thing> getAllThings() {
         return service.getAll();
     }
+
+    @PutMapping("/things/{id}")
+    public Thing updateThing(@PathVariable Long id, @RequestBody Thing updatedThing) {
+        Thing existingThing = service.get(id);
+        existingThing.setName(updatedThing.getName());
+        existingThing.setEmpty(updatedThing.isEmpty());
+        return service.save(existingThing);
+    }
+
+    @DeleteMapping("/things/{id}")
+    public void deleteThing(@PathVariable Long id) {
+        service.delete(id);
+    }
+
+
 }
