@@ -1,10 +1,7 @@
 package HTWBerlin.ShoppingList.Springboot;
 
-import HTWBerlin.ShoppingList.Springboot.Thing;
-import HTWBerlin.ShoppingList.Springboot.ThingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
