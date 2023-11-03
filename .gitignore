@@ -43,6 +43,7 @@ out/
 *.mv.db
 *.trace.db
 *.h2.db
-```
+.DS_Store
+
 
 
