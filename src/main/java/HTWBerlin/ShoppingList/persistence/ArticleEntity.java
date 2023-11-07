@@ -1,23 +1,22 @@
-package HTWBerlin.ShoppingList.Springboot;
+package HTWBerlin.ShoppingList.persistence;
 
 
 import jakarta.persistence.*;
 
 @Entity
-public class Thing {
+public class ArticleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private  String name;
-    boolean empty=false;
+    boolean empty;
 
-    public Thing(){}
+    public ArticleEntity(){}
 
-    public Thing(String name,boolean empty){
+    public ArticleEntity(String name, boolean empty){
         this.name=name;
         this.empty=empty;
-
     }
 
     public long getId() {
