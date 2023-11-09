@@ -4,7 +4,9 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.3'
 
 }
-
+jar {
+	enabled = false
+}
 group = 'HTW-Berlin'
 version = '0.0.1-SNAPSHOT'
 
