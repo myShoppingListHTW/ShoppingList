@@ -1,6 +1,7 @@
-package HTWBerlin.ShoppingList.web.API;
+package HTWBerlin.ShoppingList.web;
 
-import HTWBerlin.ShoppingList.persistence.ArticleEntity;
+import HTWBerlin.ShoppingList.Entities.ArticleEntity;
+import HTWBerlin.ShoppingList.web.API.Article;
 import org.springframework.stereotype.Service;
 
 @Service

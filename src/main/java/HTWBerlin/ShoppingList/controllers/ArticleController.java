@@ -1,5 +1,6 @@
-package HTWBerlin.ShoppingList;
+package HTWBerlin.ShoppingList.controllers;
 
+import HTWBerlin.ShoppingList.service.ArticleService;
 import HTWBerlin.ShoppingList.web.API.Article;
 import HTWBerlin.ShoppingList.web.API.ArticleManipulationRequest;
 import jakarta.validation.Valid;

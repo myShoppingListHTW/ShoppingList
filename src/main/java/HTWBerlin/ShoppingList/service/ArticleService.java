@@ -1,9 +1,10 @@
-package HTWBerlin.ShoppingList;
+package HTWBerlin.ShoppingList.service;
 
-import HTWBerlin.ShoppingList.persistence.ArticleEntity;
+import HTWBerlin.ShoppingList.Repos.ArticleRepository;
+import HTWBerlin.ShoppingList.Entities.ArticleEntity;
 import HTWBerlin.ShoppingList.web.API.Article;
 import HTWBerlin.ShoppingList.web.API.ArticleManipulationRequest;
-import HTWBerlin.ShoppingList.web.API.ArticleTransformer;
+import HTWBerlin.ShoppingList.web.ArticleTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
