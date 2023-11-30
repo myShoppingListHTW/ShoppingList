@@ -3,7 +3,7 @@ package HTWBerlin.ShoppingList.web.API;
 
 import jakarta.validation.constraints.Size;
 
-public class ArticleManipulationRequest {
+public class  ArticleManipulationRequest {
 
     @Size(min = 2, message = "Name must be at least 2 characters long")
     private String name;
