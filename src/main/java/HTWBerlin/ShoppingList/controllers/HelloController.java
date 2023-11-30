@@ -1,4 +1,4 @@
-package HTWBerlin.ShoppingList.web.API.Springboot;
+package HTWBerlin.ShoppingList.controllers;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

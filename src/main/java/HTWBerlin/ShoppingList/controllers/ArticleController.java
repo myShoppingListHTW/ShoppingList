@@ -1,5 +1,6 @@
-package HTWBerlin.ShoppingList;
+package HTWBerlin.ShoppingList.controllers;
 
+import HTWBerlin.ShoppingList.service.ArticleService;
 import HTWBerlin.ShoppingList.web.API.Article;
 import HTWBerlin.ShoppingList.web.API.ArticleManipulationRequest;
 import jakarta.validation.Valid;
@@ -7,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+
 
 @RestController
 @Validated
@@ -43,6 +44,7 @@ public class ArticleController {
                 .header("Access-Control-Expose-Headers", "Location")
                 .build();
     }
+
 
     @PutMapping(path = "/api/v1/article/{id}")
     public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody ArticleManipulationRequest request) {

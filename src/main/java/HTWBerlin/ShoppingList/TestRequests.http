@@ -4,14 +4,12 @@ DELETE http://localhost:8080/api/v1/article/2
 
 
 ###
-GET http://localhost:8080/api/v1/article/2
-
+GET http://localhost:8080/api/v1/article/1
 ```
 ###
-POST http://localhost:8080/api/v1/article
+POST https://myshoppinglist-5c77ab8495cc.herokuapp.com/api/v1/article
 Content-Type: application/json
-
 {
-    "name": "name3",
+        "name": "name1",
         "empty": "False"
-    }
+}

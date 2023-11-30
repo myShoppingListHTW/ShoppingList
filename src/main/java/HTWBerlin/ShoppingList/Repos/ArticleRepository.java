@@ -1,5 +1,5 @@
-package HTWBerlin.ShoppingList;
-import HTWBerlin.ShoppingList.persistence.ArticleEntity;
+package HTWBerlin.ShoppingList.Repos;
+import HTWBerlin.ShoppingList.Entities.ArticleEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

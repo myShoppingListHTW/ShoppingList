@@ -1,4 +1,4 @@
-package HTWBerlin.ShoppingList.persistence;
+package HTWBerlin.ShoppingList.Entities;
 
 
 import jakarta.persistence.*;
