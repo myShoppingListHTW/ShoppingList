@@ -34,7 +34,6 @@ public class ArticleController {
         var article = articleService.findById(id);
         return article != null? ResponseEntity.ok(article) : ResponseEntity.notFound().build();
     }
-
     @PostMapping(path = "/api/v1/article")
     public ResponseEntity<Void> createArticle(@Valid @RequestBody ArticleManipulationRequest request) throws URISyntaxException {
         var article = articleService.create(request);
@@ -44,17 +43,15 @@ public class ArticleController {
                 .header("Access-Control-Expose-Headers", "Location")
                 .build();
     }
-
-
     @PutMapping(path = "/api/v1/article/{id}")
     public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody ArticleManipulationRequest request) {
         var article = articleService.update(id, request);
         return article != null? ResponseEntity.ok(article) : ResponseEntity.notFound().build();
     }
-
     @DeleteMapping(path = "/api/v1/article/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable Long id) {
         boolean successful = articleService.deleteById(id);
         return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
+    //todo: method to get all articles from a specific user
 }
