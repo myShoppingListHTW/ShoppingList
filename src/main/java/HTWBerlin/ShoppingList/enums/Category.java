@@ -1,4 +1,4 @@
-package HTWBerlin.ShoppingList.Entities;
+package HTWBerlin.ShoppingList.enums;
 
 public enum Category {
     FRUIT,

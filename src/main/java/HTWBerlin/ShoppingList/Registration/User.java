@@ -1,6 +1,9 @@
 package HTWBerlin.ShoppingList.Registration;
 
+import HTWBerlin.ShoppingList.Entities.ListEntity;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class User {
@@ -13,7 +16,8 @@ public class User {
     private String email;
 
     private String password;
-
+    @OneToMany(mappedBy = "userId")
+    private List<ListEntity> articleList;
 
     public User() {
     }

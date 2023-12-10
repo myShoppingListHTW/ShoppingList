@@ -1,6 +1,8 @@
 package HTWBerlin.ShoppingList.Entities;
 
 
+import HTWBerlin.ShoppingList.enums.Category;
+import HTWBerlin.ShoppingList.enums.Unit;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +19,7 @@ public class ArticleEntity {
     private Category category;
     @Enumerated(value = EnumType.STRING)
     private Unit unit;
+
 
     public ArticleEntity(){}
 

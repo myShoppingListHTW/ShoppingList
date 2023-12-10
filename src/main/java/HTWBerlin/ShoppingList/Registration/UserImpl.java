@@ -4,7 +4,6 @@ import HTWBerlin.ShoppingList.Registration.Login.Login;
 import HTWBerlin.ShoppingList.Registration.Login.LoginMesage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 
@@ -32,7 +31,7 @@ public class UserImpl implements LoginService {
 
         userRepo.save(user);
 
-        return user;
+        return "0";
     }
     User user;
 
@@ -45,8 +44,7 @@ public class UserImpl implements LoginService {
             String encodedPassword = user1.getPassword();
             Boolean isPwdRight = passwordEncoder.matches(password, encodedPassword);
             if (isPwdRight) {
-                Optional<User> user = UserRepo.findByEmailAndPassword(login.getEmail(), encodedPassword);
-                if (user.isPresent()) {
+                if (true) {
                     return new LoginMesage("Login Success", true);
                 } else {
                     return new LoginMesage("Login Failed", false);

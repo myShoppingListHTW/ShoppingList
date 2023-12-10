@@ -1,8 +1,8 @@
 package HTWBerlin.ShoppingList.web.API;
 
 
-import HTWBerlin.ShoppingList.Entities.Category;
-import HTWBerlin.ShoppingList.Entities.Unit;
+import HTWBerlin.ShoppingList.enums.Category;
+import HTWBerlin.ShoppingList.enums.Unit;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
