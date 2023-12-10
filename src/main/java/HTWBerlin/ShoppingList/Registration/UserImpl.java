@@ -4,8 +4,9 @@ import HTWBerlin.ShoppingList.Registration.Login.Login;
 import HTWBerlin.ShoppingList.Registration.Login.LoginMesage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import java.util.Optional;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 @Service
@@ -20,19 +21,9 @@ public class UserImpl implements LoginService {
 
     @Override
     public String addUser(User user ) {
-
-        User employee = new User(
-
-                user.getUserId(),
-                user.getUserName(),
-                user.getEmail(),
-
-                this.passwordEncoder.encode(user.getPassword())
-        );
-
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
-
-        return user;
+        return user.getUserName();
     }
     User user;
 
@@ -43,7 +34,7 @@ public class UserImpl implements LoginService {
         if (user1 != null) {
             String password = login.getPassword();
             String encodedPassword = user1.getPassword();
-            Boolean isPwdRight = passwordEncoder.matches(password, encodedPassword);
+            boolean isPwdRight = passwordEncoder.matches(password, encodedPassword);
             if (isPwdRight) {
                 Optional<User> user = UserRepo.findByEmailAndPassword(login.getEmail(), encodedPassword);
                 if (user.isPresent()) {
