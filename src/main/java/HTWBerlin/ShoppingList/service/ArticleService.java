@@ -2,7 +2,7 @@ package HTWBerlin.ShoppingList.service;
 
 import HTWBerlin.ShoppingList.Repos.ArticleRepository;
 import HTWBerlin.ShoppingList.Entities.ArticleEntity;
-import HTWBerlin.ShoppingList.web.API.Article;
+import HTWBerlin.ShoppingList.Objects.Article;
 import HTWBerlin.ShoppingList.web.API.ArticleManipulationRequest;
 import HTWBerlin.ShoppingList.web.ArticleTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class ArticleService {
 
 
     public Article create(ArticleManipulationRequest request) {
-        var articleEntity = new ArticleEntity(request.getName(), request.isEmpty(),request.getUserArticle() ,request.getCategory(), request.getUnit());
+        var articleEntity = new ArticleEntity(request.getName(), request.isEmpty(),request.getCategory(), request.getUnit());
         articleEntity  = articleRepository.save(articleEntity);
         return articleTransformer.transformEntity(articleEntity);
     }

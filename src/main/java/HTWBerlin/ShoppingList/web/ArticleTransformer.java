@@ -1,7 +1,7 @@
 package HTWBerlin.ShoppingList.web;
 
 import HTWBerlin.ShoppingList.Entities.ArticleEntity;
-import HTWBerlin.ShoppingList.web.API.Article;
+import HTWBerlin.ShoppingList.Objects.Article;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +11,10 @@ public class ArticleTransformer {
         return new Article(
                 articleEntity.getId(),
                 articleEntity.getName(),
-                articleEntity.isEmpty()
+                articleEntity.isEmpty(),
+                articleEntity.getPicID(),
+                articleEntity.getCategory(),
+                articleEntity.getUnit()
         );
         }
 }

@@ -13,7 +13,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 public class SecurityConfig {
-    @Autowired
+  /**  @Autowired
     private UserDetailsService userDetailsService;
 
     @Bean
@@ -48,4 +48,5 @@ public class SecurityConfig {
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
+    **/
 }

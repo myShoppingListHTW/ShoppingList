@@ -1,20 +1,31 @@
-package HTWBerlin.ShoppingList.web.API;
+package HTWBerlin.ShoppingList.Objects;
 
+
+import HTWBerlin.ShoppingList.Entities.ListEntity;
+import HTWBerlin.ShoppingList.enums.Category;
+import HTWBerlin.ShoppingList.enums.Unit;
+import jakarta.persistence.OneToMany;
+import java.util.Set;
 
 public class Article {
 
-    private long id;
+    private long articleId;
     private String name;
     private boolean empty;
     private String userArticle;
     private String picID;
-    private enum category {Fruit, Vegetable, Meat, Fish, Dairy, Bread, Sweets, Drinks, Other};
-    private enum unit {kg, g, l, ml, piece};
+    private Category category;
+    private Unit unit ;
 
-    public Article(long id, String name, boolean empty) {
-        this.id = id;
+
+    public Article(long articleId, String name, boolean empty, String picID, Category category, Unit unit) {
+        this.articleId = articleId;
         this.name = name;
         this.empty = empty;
+        this.userArticle = userArticle;
+        this.picID = picID;
+        this.category = category;
+        this.unit = unit;
     }
 
     public String getUserArticle() {
@@ -34,7 +45,7 @@ public class Article {
     }
 
     public long getId() {
-        return id;
+        return articleId;
     }
 
     public String getName() {

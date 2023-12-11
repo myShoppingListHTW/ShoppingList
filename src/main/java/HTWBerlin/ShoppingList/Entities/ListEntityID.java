@@ -1,5 +1,6 @@
 package HTWBerlin.ShoppingList.Entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
@@ -7,16 +8,16 @@ import java.util.Objects;
 
 @Embeddable
 public class ListEntityID implements Serializable {
-    private Long articleId;
-    private Long userId;
+    @Column(name = "article_id")
+    Long articleId;
+    @Column(name = "user_id")
+    Long userId;
 
     public ListEntityID(Long articleId, Long userId) {
         this.articleId = articleId;
         this.userId = userId;
     }
-
     public ListEntityID() {
-
     }
 
     public Long getArticleId() {

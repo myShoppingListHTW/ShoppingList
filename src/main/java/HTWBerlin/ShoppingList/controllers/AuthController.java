@@ -1,21 +1,10 @@
 package HTWBerlin.ShoppingList.controllers;
 
-import HTWBerlin.ShoppingList.Entities.User;
-import HTWBerlin.ShoppingList.service.UserService;
-import HTWBerlin.ShoppingList.web.API.UserDto;
-import ch.qos.logback.core.model.Model;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
 
 @Controller
 public class AuthController {
-
+/**
     private UserService userService;
 
     public AuthController(UserService userService) {
@@ -71,4 +60,5 @@ public class AuthController {
         model.addAttribute("users", users);
         return "users";
     }
+    **/
 }

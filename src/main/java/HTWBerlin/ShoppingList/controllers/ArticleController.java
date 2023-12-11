@@ -1,7 +1,7 @@
 package HTWBerlin.ShoppingList.controllers;
 
 import HTWBerlin.ShoppingList.service.ArticleService;
-import HTWBerlin.ShoppingList.web.API.Article;
+import HTWBerlin.ShoppingList.Objects.Article;
 import HTWBerlin.ShoppingList.web.API.ArticleManipulationRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

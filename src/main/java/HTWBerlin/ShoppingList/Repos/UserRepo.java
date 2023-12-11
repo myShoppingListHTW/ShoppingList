@@ -1,10 +1,8 @@
 package HTWBerlin.ShoppingList.Repos;
 
-import HTWBerlin.ShoppingList.Entities.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import HTWBerlin.ShoppingList.Entities.UserEntity;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Long> {
-    User findByEmail(String email);
-}
+public interface UserRepo extends CrudRepository<UserEntity, Long> { }

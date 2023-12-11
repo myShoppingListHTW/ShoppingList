@@ -1,39 +1,44 @@
 package HTWBerlin.ShoppingList.Entities;
 
 
+import HTWBerlin.ShoppingList.Objects.User;
 import HTWBerlin.ShoppingList.enums.Category;
 import HTWBerlin.ShoppingList.enums.Unit;
 import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class ArticleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long articleId;
     private  String name;
     private boolean empty;
-    private String userArticle;
     private String picID;
     @Enumerated(value = EnumType.STRING)
     private Category category;
     @Enumerated(value = EnumType.STRING)
     private Unit unit;
-
+    @OneToMany(mappedBy = "articleEntity")
+    Set<ListEntity> list;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_article", referencedColumnName = "userid")
+    private UserEntity userArticle;
 
     public ArticleEntity(){}
 
-    public ArticleEntity(String name, boolean empty, String userArticle, Category category, Unit unit){
+    public ArticleEntity(String name, boolean empty, Category category, Unit unit){
         this.name=name;
         this.empty=empty;
-        this.picID= "string of the defulat pic";
-        this.userArticle= userArticle;
+        this.picID= "string of the default pic";
         this.category=category;
         this.unit=unit;
     }
 
     public long getId() {
-        return id;
+        return articleId;
     }
     public String getName() {
         return name;
@@ -65,10 +70,11 @@ public class ArticleEntity {
     public void setUnit(Unit unit) {
         this.unit = unit;
     }
-    public String isUserArticle() {
+    public UserEntity getUserArticle() {
         return userArticle;
     }
-    public void setUserArticle(String userArticle) {
+    public void setUserArticle(UserEntity userArticle) {
         this.userArticle = userArticle;
     }
+
 }
