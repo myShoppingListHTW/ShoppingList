@@ -2,7 +2,6 @@ package HTWBerlin.ShoppingList.web.API;
 
 
 import HTWBerlin.ShoppingList.Entities.Category;
-import HTWBerlin.ShoppingList.Entities.Unit;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -17,11 +16,7 @@ public class  ArticleManipulationRequest {
             message = "please choose a Category for your new Item"
     )
     private Category category;
-    @Pattern(
-            regexp = "KILOGRAM|GRAM|LITER|MILLILITER|PIECE|PACK|BOTTLE|CAN|BOX|BAG|OTHER",
-            message = "please choose a Category for your new Item"
-    )
-    private Unit unit;
+
 
     public String getUserArticle() {
         return userArticle;
@@ -57,11 +52,5 @@ public class  ArticleManipulationRequest {
         this.category = category;
     }
 
-    public Unit getUnit() {
-        return unit;
-    }
 
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
 }

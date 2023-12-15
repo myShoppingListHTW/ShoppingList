@@ -37,7 +37,7 @@ public class ArticleService {
 
 
     public Article create(ArticleManipulationRequest request) {
-        var articleEntity = new ArticleEntity(request.getName(), request.isEmpty(),request.getUserArticle() ,request.getCategory(), request.getUnit());
+        var articleEntity = new ArticleEntity(request.getName(), request.isEmpty(), request.getCategory());
         articleEntity  = articleRepository.save(articleEntity);
         return articleTransformer.transformEntity(articleEntity);
     }
@@ -52,11 +52,7 @@ public class ArticleService {
         articleEntity.setName(request.getName());
         articleEntity.setEmpty(request.isEmpty());
         articleEntity.setCategory(request.getCategory());
-        articleEntity.setUnit(request.getUnit());
-
         articleEntity = articleRepository.save(articleEntity);
-
-
         return articleTransformer.transformEntity(articleEntity);
     }
 
