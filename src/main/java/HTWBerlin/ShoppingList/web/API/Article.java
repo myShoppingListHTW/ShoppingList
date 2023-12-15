@@ -1,38 +1,22 @@
 package HTWBerlin.ShoppingList.web.API;
 
 
+import HTWBerlin.ShoppingList.Entities.Category;
+
 public class Article {
 
     private long id;
     private String name;
     private boolean empty;
-    private String userArticle;
-    private String picID;
-    private enum category {Fruit, Vegetable, Meat, Fish, Dairy, Bread, Sweets, Drinks, Other};
-    private enum unit {kg, g, l, ml, piece};
+    private Category category;
 
-    public Article(long id, String name, boolean empty) {
+    public Article(long id, String name, boolean empty, Category category) {
         this.id = id;
         this.name = name;
         this.empty = empty;
+        this.category = category;
     }
-
-    public String getUserArticle() {
-        return userArticle;
-    }
-
-    public void setUserArticle(String userArticle) {
-        this.userArticle = userArticle;
-    }
-
-    public String getPicID() {
-        return picID;
-    }
-
-    public void setPicID(String picID) {
-        this.picID = picID;
-    }
-
+    public Article() {    }
     public long getId() {
         return id;
     }
@@ -51,5 +35,17 @@ public class Article {
 
     public void setEmpty(boolean empty) {
         this.empty = empty;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

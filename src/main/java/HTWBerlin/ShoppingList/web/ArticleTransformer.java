@@ -11,7 +11,8 @@ public class ArticleTransformer {
         return new Article(
                 articleEntity.getId(),
                 articleEntity.getName(),
-                articleEntity.isEmpty()
+                articleEntity.isEmpty(),
+                articleEntity.getCategory()
         );
         }
 }

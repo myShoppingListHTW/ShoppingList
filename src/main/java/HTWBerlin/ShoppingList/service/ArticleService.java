@@ -47,7 +47,6 @@ public class ArticleService {
         if (articleEntityOptional.isEmpty()) {
             return null;
         }
-
         var articleEntity = articleEntityOptional.get();
         articleEntity.setName(request.getName());
         articleEntity.setEmpty(request.isEmpty());
@@ -60,12 +59,9 @@ public class ArticleService {
         if (!articleRepository.existsById(id)) {
             return false;
         }
-
         articleRepository.deleteById(id);
         return true;
     }
-
-
 
 
     @Autowired
