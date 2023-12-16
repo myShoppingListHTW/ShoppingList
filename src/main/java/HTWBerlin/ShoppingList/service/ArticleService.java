@@ -64,25 +64,24 @@ public class ArticleService {
     }
 
 
-    @Autowired
-    ArticleRepository repo;
+
 
     public ArticleEntity save(ArticleEntity articleEntity) {
-        return repo.save(articleEntity);
+        return articleRepository.save(articleEntity);
     }
 
     public ArticleEntity get(Long id) {
-        return repo.findById(id).orElseThrow(() -> new RuntimeException());
+        return articleRepository.findById(id).orElseThrow(() -> new RuntimeException());
     }
 
     public List<ArticleEntity> getAll() {
-        Iterable<ArticleEntity> iterator = repo.findAll();
+        Iterable<ArticleEntity> iterator = articleRepository.findAll();
         List<ArticleEntity> articleEntities = new ArrayList<ArticleEntity>();
         for (ArticleEntity articleEntity : iterator)  articleEntities.add(articleEntity);
         return articleEntities;}
 
     public void delete(Long id) {
-        repo.deleteById(id);
+        articleRepository.deleteById(id);
     }
 
 }

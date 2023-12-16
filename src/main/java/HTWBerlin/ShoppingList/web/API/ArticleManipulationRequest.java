@@ -10,21 +10,11 @@ public class  ArticleManipulationRequest {
     @Size(min = 2, message = "Name must be at least 2 characters long")
     private String name;
     private boolean empty;
-    private String userArticle;
-    @Pattern(
-            regexp = "FRUIT|VEGETABLE|MEAT|FISH|DAIRY|BAKERY|SWEETS|DRINKS|ALCOHOL|OTHER",
-            message = "please choose a Category for your new Item"
-    )
     private Category category;
 
 
-    public String getUserArticle() {
-        return userArticle;
-    }
 
-    public void setUserArticle(String userArticle) {
-        this.userArticle = userArticle;
-    }
+
 
     public ArticleManipulationRequest() {}
 
