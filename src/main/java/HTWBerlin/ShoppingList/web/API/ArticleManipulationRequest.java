@@ -2,7 +2,6 @@ package HTWBerlin.ShoppingList.web.API;
 
 
 import HTWBerlin.ShoppingList.Entities.Category;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class  ArticleManipulationRequest {
@@ -13,8 +12,11 @@ public class  ArticleManipulationRequest {
     private Category category;
 
 
-
-
+    public ArticleManipulationRequest(String name, boolean empty, Category category) {
+        this.name = name;
+        this.empty = empty;
+        this.category = category;
+    }
 
     public ArticleManipulationRequest() {}
 
