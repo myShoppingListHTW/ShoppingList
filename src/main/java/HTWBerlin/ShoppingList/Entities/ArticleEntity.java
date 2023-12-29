@@ -9,6 +9,7 @@ public class ArticleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private  String name;
     private boolean empty;
     @Enumerated(value = EnumType.STRING)
