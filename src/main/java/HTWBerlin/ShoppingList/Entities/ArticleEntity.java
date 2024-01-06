@@ -2,6 +2,8 @@ package HTWBerlin.ShoppingList.Entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class ArticleEntity {
@@ -10,6 +12,8 @@ public class ArticleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Size(min = 2, max = 20)
+    @NotBlank
     private  String name;
     private boolean empty;
     @Enumerated(value = EnumType.STRING)
@@ -22,7 +26,6 @@ public class ArticleEntity {
         this.empty=empty;
         this.category=category;
     }
-
     public long getId() {
         return id;
     }

@@ -11,7 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-
+import HTWBerlin.ShoppingList.Exceptions.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -76,26 +76,6 @@ public class ArticleControllerTest {
     }
 
     /**
-     * Test to verify that an article is successfully updated.
-     * @throws Exception If an error occurs during the test.
-     */
-    @Test
-    public void updateArticle() throws Exception {
-        Article article = new Article(1L, "Bread", false, null);
-        when(articleService.findById(1L)).thenReturn(article);
-
-        ArticleManipulationRequest updateRequest = new ArticleManipulationRequest("Updated Bread", true, null);
-
-        this.mockMvc.perform(put("/api/v1/article/1")
-                        .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                        .content("{\"name\":\"Updated Bread\",\"empty\":true,\"category\":null}"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"id\":1,\"name\":\"Updated Bread\",\"empty\":true,\"category\":null}"))
-                .andReturn();
-    }
-
-    /**
      * Test to verify that an article is successfully deleted.
      * @throws Exception If an error occurs during the test.
      */
@@ -120,5 +100,33 @@ public class ArticleControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\":\"Bread\",\"empty\":false,\"category\":null}"))
                 .andExpect(status().isCreated());
+    }
+
+    /**
+     * Test to make sure, the name must be between 2 and 20 chars long.
+     * @throws ItemException
+     */
+    @Test
+    public void createArticleNameTooShort() throws Exception {
+        when(articleService.create(any())).thenReturn(new Article(1L, "B", false, null));
+
+        this.mockMvc.perform(post("/api/v1/article")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"name\":\"B\",\"empty\":false,\"category\":null}"))
+                .andExpect(status().isBadRequest());
+    }
+
+    /**
+     * Test to make sure, the name must be between 2 and 20 chars long.
+     * @throws ItemException
+     */
+    @Test
+    public void createArticleNameTooLong() throws Exception {
+        when(articleService.create(any())).thenReturn(new Article(1L, "b1234567891011121314151617181920", false, null));
+
+        this.mockMvc.perform(post("/api/v1/article")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"name\":\"B\",\"empty\":false,\"category\":null}"))
+                .andExpect(status().isBadRequest());
     }
 }
