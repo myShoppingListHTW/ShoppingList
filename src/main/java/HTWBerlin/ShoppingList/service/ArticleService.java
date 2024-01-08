@@ -29,6 +29,13 @@ public class ArticleService {
                 .map(articleTransformer::transformEntity)
                 .collect(Collectors.toList());
     }
+    public List<Article> findByOwner(String owner) {
+        List<ArticleEntity> articles = (List<ArticleEntity>) articleRepository.findAll();
+        return articles.stream()
+                .filter(article -> article.getOwner().equals(owner))
+                .map(articleTransformer::transformEntity)
+                .collect(Collectors.toList());
+    }
 
     public Article findById(Long id) {
         var personEntity = articleRepository.findById(id);
@@ -37,7 +44,7 @@ public class ArticleService {
 
 
     public Article create(ArticleManipulationRequest request) {
-        var articleEntity = new ArticleEntity(request.getName(), request.isEmpty(), request.getCategory());
+        var articleEntity = new ArticleEntity(request.getName(), request.isEmpty(), request.getCategory(), request.getOwner());
         articleEntity  = articleRepository.save(articleEntity);
         return articleTransformer.transformEntity(articleEntity);
     }

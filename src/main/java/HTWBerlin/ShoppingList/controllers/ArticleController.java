@@ -24,17 +24,22 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
-    @GetMapping(path = "/api/v1/article")
-    public ResponseEntity<List<Article>> fetchArticles() {
-        return ResponseEntity.ok(articleService.findAll());
-    }
 
+    @CrossOrigin
+    @GetMapping(path = "/api/v1/article/")
+    public ResponseEntity<List<Article>> fetchArticles(@RequestParam(name = "owner", required = false) String owner) {
+        if (owner != null && !owner.isEmpty()) {
+            return ResponseEntity.ok(articleService.findByOwner(owner));
+        } else {
+            return ResponseEntity.ok(articleService.findAll());
+        }
+    }
     @GetMapping(path = "/api/v1/article/{id}")
     public ResponseEntity<Article> fetchArticleById(@PathVariable Long id) {
         var article = articleService.findById(id);
         return article != null? ResponseEntity.ok(article) : ResponseEntity.notFound().build();
     }
-    @PostMapping(path = "/api/v1/article")
+    @PostMapping(path = "/api/v1/article/")
     public ResponseEntity<Void> createArticle(@Valid @RequestBody ArticleManipulationRequest request) throws URISyntaxException {
         var article = articleService.create(request);
         URI uri = new URI("/api/v1/article/" + article.getId());
@@ -53,5 +58,4 @@ public class ArticleController {
         boolean successful = articleService.deleteById(id);
         return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
-    //todo: method to get all articles from a specific user
 }

@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedMethods("*")
                 .allowedOrigins(
-                        "http://localhost:3000",
+                        "http://localhost:3000/",
                         "https://myshoppinglistfrontend-f9889051a5f1.herokuapp.com/"
                 );
     }

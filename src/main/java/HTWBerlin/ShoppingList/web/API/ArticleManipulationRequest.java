@@ -6,16 +6,19 @@ import jakarta.validation.constraints.Size;
 
 public class  ArticleManipulationRequest {
 
-    @Size(min = 2, message = "Name must be at least 2 characters long")
+    @Size(min = 2, max = 20, message = "Name must be at least 2 characters long")
     private String name;
     private boolean empty;
     private Category category;
 
+    private String owner;
 
-    public ArticleManipulationRequest(String name, boolean empty, Category category) {
+
+    public ArticleManipulationRequest(String name, boolean empty, Category category, String owner) {
         this.name = name;
         this.empty = empty;
         this.category = category;
+        this.owner = owner;
     }
 
     public ArticleManipulationRequest() {}
@@ -44,5 +47,11 @@ public class  ArticleManipulationRequest {
         this.category = category;
     }
 
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 
+    public String getOwner() {
+        return owner;
+    }
 }

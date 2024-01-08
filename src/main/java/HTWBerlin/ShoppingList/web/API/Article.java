@@ -10,11 +10,14 @@ public class Article {
     private boolean empty;
     private Category category;
 
-    public Article(long id, String name, boolean empty, Category category) {
+    private String owner;
+
+    public Article(long id, String name, boolean empty, Category category, String owner) {
         this.id = id;
         this.name = name;
         this.empty = empty;
         this.category = category;
+        this.owner = owner;
     }
     public Article() {    }
     public long getId() {
@@ -47,5 +50,13 @@ public class Article {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }

@@ -12,7 +12,8 @@ public class ArticleTransformer {
                 articleEntity.getId(),
                 articleEntity.getName(),
                 articleEntity.isEmpty(),
-                articleEntity.getCategory()
+                articleEntity.getCategory(),
+                articleEntity.getOwner()
         );
         }
 }
