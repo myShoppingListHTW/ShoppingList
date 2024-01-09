@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 public class ArticleEntity {
@@ -21,9 +20,8 @@ public class ArticleEntity {
     private boolean empty;
     @Enumerated(value = EnumType.STRING)
     private Category category;
-@Value("all")
-@NotNull
-private String owner;
+    @NotNull
+    private String owner;
     public ArticleEntity(){}
 
     public ArticleEntity(String name, boolean empty, Category category, String owner){

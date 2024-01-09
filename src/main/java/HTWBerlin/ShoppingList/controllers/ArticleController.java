@@ -48,6 +48,7 @@ public class ArticleController {
                 .header("Access-Control-Expose-Headers", "Location")
                 .build();
     }
+    @CrossOrigin
     @PutMapping(path = "/api/v1/article/{id}")
     public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody ArticleManipulationRequest request) {
         var article = articleService.update(id, request);

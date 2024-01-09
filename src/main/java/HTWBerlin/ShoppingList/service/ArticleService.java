@@ -58,6 +58,7 @@ public class ArticleService {
         articleEntity.setName(request.getName());
         articleEntity.setEmpty(request.isEmpty());
         articleEntity.setCategory(request.getCategory());
+        articleEntity.setOwner(request.getOwner());
         articleEntity = articleRepository.save(articleEntity);
         return articleTransformer.transformEntity(articleEntity);
     }
