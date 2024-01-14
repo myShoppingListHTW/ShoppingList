@@ -71,25 +71,4 @@ public class ArticleService {
         return true;
     }
 
-
-
-
-    public ArticleEntity save(ArticleEntity articleEntity) {
-        return articleRepository.save(articleEntity);
-    }
-
-    public ArticleEntity get(Long id) {
-        return articleRepository.findById(id).orElseThrow(() -> new RuntimeException());
-    }
-
-    public List<ArticleEntity> getAll() {
-        Iterable<ArticleEntity> iterator = articleRepository.findAll();
-        List<ArticleEntity> articleEntities = new ArrayList<ArticleEntity>();
-        for (ArticleEntity articleEntity : iterator)  articleEntities.add(articleEntity);
-        return articleEntities;}
-
-    public void delete(Long id) {
-        articleRepository.deleteById(id);
-    }
-
 }
